@@ -1,0 +1,23 @@
+Python for Data Analysis 
+- 파이썬 라이브러리를 활용한 데이터 분석(2판)
+- 웨스 맥키니 저/김영근 역, 한빛미디어 
+
+chp02. Jupyter
+chp03. Data structure, Function
+chp04. Numpy
+chp05. Pandas 
+chp06. Data loading 
+chp07. Data cleansing 
+chp08. Data preparation
+chp09. Visualization
+chp10. Group by 
+chp11. Time series 
+chp12. Advanced Pandas
+chp13. Model library 
+chp14-1. ex. USA gov
+chp14-2. ex. Movie lens
+chp14-3. ex. Baby names 
+chp14-4. ex. USA food 
+chp14-5. ex. 2012 election 
+
+etc. iris, salse_info_practice 
