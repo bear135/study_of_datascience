@@ -1,1 +1,94 @@
-11
+﻿#######################################################
+Contens 
+#######################################################
+
+Lec 00: Orientation
+
+Lec 01: Basic concept about machine learning
+	Lab 01: Tensorflow install
+
+Lec 02: H(x) = Wx + b, cost function 
+	Lab 02: Linear Regression with TensorFlow
+	  - GradientDescent, Optimizer 
+	  - placeholder & feed_dict 를 활용한 regression 
+
+Lec 03: Minimize cost algorithm (understanding Gradient Descent)
+	Lab 03: Minimize cost algorithm with tf 
+	  - Gradient Descent를 코드로 구현하기 
+	  - Optimizer를 활용하여 Gradient Descent(미분)을 간편하게 코딩하기   
+
+Lec 04 : Multivariable linear regression (Hypothesis using matrix) 
+	Lab 04-1 : Tensorflow를 사용하여 회귀모형 구성/실행 하기 
+	Lab 04-2 : 파일로 부터 데이터 로딩하여, 회귀모형 구성/실행 하기 
+
+Lec 05 : Logistic Regression & cost function 
+	Lab 05 : Tensorflow를 사용하여 로지스틱 회귀모형 구성/실행 하기 
+	Practice : 당뇨병 예측 문제 
+
+Lec 06 : Softmax (multinominal classification) ~ 모형 & cost function 
+	Lab 06-1 : Tensorflow를 사용하여 softmax 구성/실행 하기 
+	Lab 06-2 : softmax_cross_entropy_with_logits, one_hot, reshape
+	Practice : Animal Classification 
+
+Lec 07 : learning_rate, overfitting, regularization 
+	Lab 07-1 : dataset ~ training / validation / test 
+	Lab 07-2 : (practice) MNIST dataset 
+
+Lec 08 : Deep learning의 기본개념 (XOR 문제, history) 
+	Lab 08 : 선형대수 기초 ~ Tensor(arrary)를 자유자재로 다루기 
+                      1) shape, rank, axix의 개념 
+                      2) 행렬계산에서 matmul과 multiply의 차이
+                      3) reduce_mean, reduce_sum, argmax 계산시 axis 지정
+                      4) reshape, squeeze, expand_dims
+                      5) one_hot, cast, stack 
+                      6) ones like, zero like
+                      7) zip, transpose 
+
+Lec 09 : XOR 문제 딥러닝으로 풀기 (Back propagation, chain Rule) 
+	Lec 09-x : (보충수업) 미분, 편미분 이론 간단 정리  
+	Lab 09-1 : Logistic과 Neural Network로 xor 문제 각각 풀어보기 
+	Lab 09-2 : Tensor Board 기초 
+
+Lec 10-1 : Relu (better than Sigmoid) 
+Lec 10-2 : Weight 초기화 방법 (RBM, xabier, he) 
+Lec 10-3 : Overfitting 피하기 (Regulization : L2Reg, Dropout, Ensemble) 
+Lec 10-4 : NN lego (Feed forward NN, Fast forward NN, CNN, RNN) 
+	Lab 10 : MNIST Deeplearning 성능향상
+                     1) softmax 복습 및 accuracy 
+                     2) layer의 추가 (Neural net)  
+                     3) weight 초기화 조정 (xavier) 
+                     4) deep & wide NN, Adam optimizer, and Dropout 
+
+Lec 11-1 : CNN introduction 
+Lec 11-2 : Pooling, FC 
+Lec 11-3 : CNN history - Lenet, AlexNet, GoogleNet, Sentence Classification, Alphago 
+	Lab 11-1 : CNN basics 
+	Lab 11-2 : MNIST 99% with CNN 
+	Lab 11-3 : Class, Layer, Ensemble 
+
+
+Lec 12 : RNN  
+	Lab 12-1 : RNN basics 
+	Lab 12-2 : Hi hello training 
+	Lab 12-3 : Long Sequence RNN
+	Lab 12-4 : Stacked RNN + softmax layer 
+	Lab 12-5 : Dynamic RNN 
+	Lab 12-6 : RNN with time series 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
