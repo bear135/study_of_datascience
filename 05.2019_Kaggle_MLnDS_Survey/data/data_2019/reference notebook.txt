@@ -1,0 +1,7 @@
+<reference notebook>
+
+https://www.kaggle.com/subinium/the-hitchhiker-s-guide-to-the-kaggle
+https://www.kaggle.com/anshuls235/data-science-is-love
+-------------------------------------------------------------------------------------------------------
+[이유한님] 캐글 코리아 캐글 스터디 커널 커리큘럼
+https://kaggle-kr.tistory.com/32?category=868318
