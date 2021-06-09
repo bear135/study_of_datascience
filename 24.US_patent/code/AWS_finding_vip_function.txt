@@ -1,0 +1,65 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed May  5 19:17:20 2021
+
+@author: kmang
+"""
+
+
+################### AWS SageMaker Coding ####################################
+
+import pandas as pd
+
+
+def finding_vip (ipc, rank, us_datamart_df, family_df, citation_df):
+    
+    mask_ipc = (us_datamart_df['new_ipc_code'] == ipc)
+    ipc_us_data_mart = us_datamart_df.loc[mask_ipc,['app_no', 'doc_no','reg_no', 'new_ipc_code', 'app_year']]
+        
+    doc_no_list = list (ipc_us_data_mart['doc_no'])
+        
+    i = 0
+    
+    vip_patent_candidate_list = pd.DataFrame([],index=doc_no_list)
+    
+    citation_freq_list = []
+    family_freq_list = []
+    
+    for doc_no in list(vip_patent_candidate_list.index):
+    
+# doc_no = '200100036304A1'
+    
+        mask_family = (family_df['doc_num'] == doc_no)
+        family_data = family_df.loc[mask_family,['doc_num', 'family_appno']]
+        family_freq = len(set(list(family_data['family_appno'])))
+        family_freq_list.append(family_freq)
+        
+        mask_temp = ipc_us_data_mart.loc[ipc_us_data_mart['doc_no']==doc_no,['app_no']].reset_index(drop= True)    
+        mask_family_B2 = (family_df['doc_num'] == doc_no) & (family_df['family_appno'] == ('0'+str(mask_temp.loc[0,'app_no'])))
+        family_B2 = family_df.loc[mask_family_B2,['family_docno']].reset_index(drop = True)
+    
+# j = 0
+    
+        citation_freq = 0
+    
+        for doc_num in set(list(family_B2['family_docno'])):
+            mask_citation = (citation_df['new_citation_doc_num'] == doc_num) 
+            citation_doc_no = citation_df.loc[mask_citation, ['new_citation_doc_num']]
+            citation_freq = citation_freq + len(citation_doc_no['new_citation_doc_num'])
+
+    
+        citation_freq_list.append(citation_freq)
+    
+
+    
+    vip_patent_candidate_list['citation frequency'] = citation_freq_list
+    vip_patent_candidate_list['family frequency'] = family_freq_list
+    vip_patent_candidate_list['summation'] = vip_patent_candidate_list['citation frequency'] + vip_patent_candidate_list['family frequency'] 
+
+    vip_patent_candidate_list = vip_patent_candidate_list.sort_values('summation',ascending=False)
+
+    top_rank_vip = list(vip_patent_candidate_list.index[0:rank])
+
+    return top_rank_vip
+
+

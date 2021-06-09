@@ -1,0 +1,45 @@
+﻿#################################################################
+Title : Python with AWS S3 (data loading & writting) 
+#################################################################
+
+import numpy as np
+import pandas as pd 
+import matplotlib as mpl 
+import matplotlib.pyplot as plt 
+import seaborn as sns
+sns.set(style='whitegrid')
+
+import warnings
+warnings.filterwarnings("ignore")
+
+import boto3
+import io
+from io import StringIO 
+
+aws_key = 'AKIART37Q72E4DTJS7PC'
+aws_secret = 'kfwIa0SXKnX9DtEFDy3iKXrI7A3Ue3G/j5ugrERj'
+
+s3 = boto3.client('s3', 'ap-northeast-2', aws_access_key_id = aws_key, aws_secret_access_key = aws_secret)
+bucket = 'sample-datasets-ybchoi'
+
+test = s3.get_object(Bucket = bucket, Key = 'titanic_test/test.csv')
+test = pd.read_csv(test['Body']) 
+
+############ if not loading, try this ######################################
+(1) encoding issue 
+test = pd.read_csv(test['Body'], encoding = 'ISO-8859-1') 
+
+(2) IO issue 
+test = pd.read_csv(io.BytesIO(test['Body'].read())) 
+####################################################################
+
+
+bucket_w = 'datalake-ddi-demo-internal'    ## 저장할 bucket명 입력
+key_output = 'object/titanic/test.csv'    ## 저장할 object의 위치 및 object명 입력
+
+csv_buffer = StringIO()
+test.to_csv(csv_buffer,index=False,sep='\t')
+submission.to_csv(csv_buffer,index=False,sep='\t')
+
+s3.put_object(Bucket=bucket_w, Body=csv_buffer.getvalue(), Key= key_output1)
+

@@ -1,0 +1,191 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed May  5 19:17:20 2021
+
+@author: kmang
+"""
+
+
+################### AWS SageMaker Coding ####################################
+
+import pandas as pd
+
+
+#family_filename = 'C:/DB/AWS/200101_12_family_info.csv'
+#citation_filename ='C:/DB/AWS/200101_12_citation_info_US_A1.csv'
+#us_datamart_filename = 'C:/DB/AWS/200101_12_us_datamart.csv'
+
+family_filename = 'data/200101_12_family_info.csv'
+citation_filename ='data/200101_12_citation_info.csv'
+us_datamart_filename = 'data/200101_12_us_datamart.csv'
+
+family_df = pd.read_csv(family_filename)
+citation_df = pd.read_csv(citation_filename)
+us_datamart_df = pd.read_csv(us_datamart_filename) 
+
+####################################################################################################################
+# make 'new_citation_doc_num' columns in citation_df, in order to compare 'doc_no' in us_datamart_df and family_df
+
+new_citation_pat_num = []
+
+i = 0 
+
+while i < len(citation_df):
+    
+    if 'US' in citation_df.loc[i,'citation_pat_country']:
+        
+        if 'B1' in citation_df.loc[i,'cit_pat_cat']:
+            
+            if len(citation_df.loc[i, 'cit_pat_num']+'B1') == 9:
+                
+                new_citation_pat_num.append('00000'+citation_df.loc[i, 'cit_pat_num']+'B1')
+                
+            elif len(citation_df.loc[i, 'cit_pat_num']+'B1') == 10: 
+                
+                new_citation_pat_num.append('0000'+citation_df.loc[i, 'cit_pat_num']+'B1')
+                
+            elif len(citation_df.loc[i, 'cit_pat_num']+'B1') == 11: 
+                
+                new_citation_pat_num.append('000'+citation_df.loc[i, 'cit_pat_num']+'B1')
+
+            elif len(citation_df.loc[i, 'cit_pat_num']+'B1') == 12: 
+                
+                new_citation_pat_num.append('00'+citation_df.loc[i, 'cit_pat_num']+'B1')  
+                
+                
+        elif 'B2' in citation_df.loc[i,'cit_pat_cat']:
+            
+            if len(citation_df.loc[i, 'cit_pat_num']+'B2') == 9:
+                
+                new_citation_pat_num.append('00000'+citation_df.loc[i, 'cit_pat_num']+'B2')
+                
+            elif len(citation_df.loc[i, 'cit_pat_num']+'B2') == 10: 
+                
+                new_citation_pat_num.append('0000'+citation_df.loc[i, 'cit_pat_num']+'B2')
+                
+            elif len(citation_df.loc[i, 'cit_pat_num']+'B2') == 11: 
+                
+                new_citation_pat_num.append('000'+citation_df.loc[i, 'cit_pat_num']+'B2')
+
+            elif len(citation_df.loc[i, 'cit_pat_num']+'B2') == 12: 
+                
+                new_citation_pat_num.append('00'+citation_df.loc[i, 'cit_pat_num']+'B2') 
+                
+        
+        elif 'A1' in citation_df.loc[i,'cit_pat_cat']:
+            
+            if ("/" in citation_df.loc[i,'cit_pat_num']) & (len(citation_df.loc[i,'cit_pat_num'])==12):
+                
+                modified_cit_no = citation_df.loc[i,'cit_pat_num'].replace('/','0')
+                new_citation_pat_num.append(modified_cit_no + 'A1')
+                
+            elif ("/" in citation_df.loc[i,'cit_pat_num']) & (len(citation_df.loc[i,'cit_pat_num'])==11):
+                
+                modified_cit_no = citation_df.loc[i,'cit_pat_num'].replace('/','00')
+                new_citation_pat_num.append(modified_cit_no + 'A1')
+                
+            elif ("/" in citation_df.loc[i,'cit_pat_num']) & (len(citation_df.loc[i,'cit_pat_num'])==10):
+                
+                modified_cit_no = citation_df.loc[i,'cit_pat_num'].replace('/','000')
+                new_citation_pat_num.append(modified_cit_no + 'A1')
+                            
+            elif ("-" in citation_df.loc[i,'cit_pat_num']) & (len(citation_df.loc[i,'cit_pat_num'])==12):
+               
+                modified_cit_no = citation_df.loc[i,'cit_pat_num'].replace('-','0')
+                new_citation_pat_num.append(modified_cit_no + 'A1')
+                
+            elif ("-" in citation_df.loc[i,'cit_pat_num']) & (len(citation_df.loc[i,'cit_pat_num'])==11):
+                
+                modified_cit_no = citation_df.loc[i,'cit_pat_num'].replace('-','00')
+                new_citation_pat_num.append(modified_cit_no + 'A1')
+                
+            elif ("-" in citation_df.loc[i,'cit_pat_num']) & (len(citation_df.loc[i,'cit_pat_num'])==10):
+                
+                modified_cit_no = citation_df.loc[i,'cit_pat_num'].replace('-','000')               
+                new_citation_pat_num.append( modified_cit_no + 'A1')  
+                
+            else:
+                
+                new_citation_pat_num.append('-1') 
+                
+        else:
+            
+             new_citation_pat_num.append('-1') 
+                
+    else:
+        
+        new_citation_pat_num.append('-1') 
+
+    i = i + 1     
+
+#    print("i = %d" %i)      
+    
+    
+citation_df['new_citation_doc_num'] = new_citation_pat_num
+
+#citation_df.to_csv('C:/DB/AWS/modified_200101_12_citation_info.csv')
+citation_df.to_csv('data/modified_200101_12_citation_info.csv')
+
+## citation_df columns: ['doc_num', 'citation_pat_country', 'cit_pat_num', 'cit_pat_cat','cit_pat_app_reg_ym', 'new_citation_doc_num']
+## family_df columns: ['doc_num', 'family_type', 'family_patno', 'family_country','family_docno', 'family_doc_code', 'family_appno', 'family_app_date']
+
+####### define a function, "finding vip (very important patent)" when a specific ipc and vip patent numbers to find are given #### 
+            
+   
+ipc = 'G06K9/00'
+rank = 10
+
+# def finding_vip (ipc, rank):
+    
+mask_ipc = (us_datamart_df['new_ipc_code'] == ipc)
+ipc_us_data_mart = us_datamart_df.loc[mask_ipc,['app_no', 'doc_no','reg_no', 'new_ipc_code', 'app_year']]
+    
+doc_no_list = list (ipc_us_data_mart['doc_no'])
+    
+i = 0
+
+vip_patent_candidate_list = pd.DataFrame([],index=doc_no_list)
+
+citation_freq_list = []
+family_freq_list = []
+
+for doc_no in list(vip_patent_candidate_list.index):
+    
+# doc_no = '200100036304A1'
+    
+    mask_family = (family_df['doc_num'] == doc_no)
+    family_data = family_df.loc[mask_family,['doc_num', 'family_appno']]
+    family_freq = len(set(list(family_data['family_appno'])))
+    family_freq_list.append(family_freq)
+    
+    mask_temp = ipc_us_data_mart.loc[ipc_us_data_mart['doc_no']==doc_no,['app_no']].reset_index(drop= True)    
+    mask_family_B2 = (family_df['doc_num'] == doc_no) & (family_df['family_appno'] == ('0'+str(mask_temp.loc[0,'app_no'])))
+    family_B2 = family_df.loc[mask_family_B2,['family_docno']].reset_index(drop = True)
+    
+# j = 0
+    
+    citation_freq = 0
+    
+    for doc_num in set(list(family_B2['family_docno'])):
+        mask_citation = (citation_df['new_citation_doc_num'] == doc_num) 
+        citation_doc_no = citation_df.loc[mask_citation, ['new_citation_doc_num']]
+        citation_freq = citation_freq + len(citation_doc_no['new_citation_doc_num'])
+
+    
+    citation_freq_list.append(citation_freq)
+    
+
+    
+vip_patent_candidate_list['citation frequency'] = citation_freq_list
+vip_patent_candidate_list['family frequency'] = family_freq_list
+vip_patent_candidate_list['summation'] = vip_patent_candidate_list['citation frequency'] + vip_patent_candidate_list['family frequency'] 
+
+vip_patent_candidate_list = vip_patent_candidate_list.sort_values('summation',ascending=False)
+
+top_rank_vip = list(vip_patent_candidate_list.index[0:rank])
+
+# return top_rank_vip
+
+
+
+vip_patent_candidate_list.to_csv('data/vip_patent_candidate_list of ipc G06K9_00.csv')

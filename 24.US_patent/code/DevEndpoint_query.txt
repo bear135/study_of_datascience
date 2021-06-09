@@ -1,0 +1,30 @@
+#############################
+## AWS Glue에서 Dev.End point 생성 > 주피터노트북 생성 > Pyspark 구문 실행  
+## 비용 절감을 위해 작업 종료 후 Dev.Endpoint 삭제 필수
+## 주피터 랩에서 다음의 순서로 작업 수행 
+#############################
+
+
+
+## spark와 glue catalog 사용을 위한 기본 세팅 
+
+import sys
+from pyspark.context import SparkContext
+from awsglue.context import GlueContext
+from awsglue.transforms import *
+
+## spark와 glue catalog 사용을 위한 기본 세팅 
+glueContext = GlueContext(SparkContext.getOrCreate())
+
+
+## 1) Spark DF로 활용할 때 : 스파크 데이터프레임 생성방법 
+temp = glueContext.create_dynamic_frame.from_catalog(database="tm_database", table_name="df_ipc_code_parquet").toDF()
+
+
+## 2) SQL로 활용할 때 : 아래와 같이 데이터테이블(temp)를 생성하고, spark.sql("SQL query문 입력")하는 형태로 사용
+temp.createOrReplaceTempView("temp")
+spark.sql("select * from temp limit 1").show()
+
+
+## 3) Pandas로 활용할 때 : glue 카탈로그로 부터 데이터프레임을 만들고, 이를 다시 판다스 데이터 프레임으로 변환한다. 
+pd_temp = glueContext.create_dynamic_frame.from_catalog(database="tm_database", table_name="df_ipc_code_parquet").toDF.toPandas()

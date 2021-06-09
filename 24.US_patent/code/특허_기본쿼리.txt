@@ -1,0 +1,35 @@
+## 1. 연도별 특허 출원건수 
+## raw data의 출원일자가 null 또는 9999 등인 값들이 존재하기 때문에, 최대 2021년까지만 추출하도록 하였음 
+ 
+SELECT "출원연도", count(distinct "문헌번호") as Cnt
+FROM "tm_database"."df_us_datamart_parquet" 
+where "출원연도" < '2022'
+group by "출원연도"
+order by "출원연도"
+;
+
+
+## 2. 최근 5년 연월별 특허 출원건수 
+SELECT "출원연월", count(distinct "문헌번호") as Cnt
+FROM "tm_database"."df_us_datamart_parquet" 
+where "출원연월" between '201501' and '202012'
+group by "출원연월" 
+order by "출원연월"
+;
+
+
+
+## 3. 연도별 Top10 IPC 
+## 2000년 이후만 
+
+select *
+from
+(
+SELECT "출원연도", "ipc코드", count("문헌번호") as cnt, row_number() over (PARTITION BY "출원연도" order by count("문헌번호") desc) as "순위"
+FROM "tm_database"."df_us_datamart_parquet" 
+where "출원연도" >= '2000' and "출원연도" <= '2020'
+group by  "출원연도", "ipc코드"
+  )
+where "순위" <= 10 
+order by "출원연도", "순위"
+;
