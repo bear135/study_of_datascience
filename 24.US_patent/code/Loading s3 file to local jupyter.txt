@@ -16,8 +16,8 @@ import boto3
 import io
 from io import StringIO 
 
-aws_key = 'AKIART37Q72E4DTJS7PC'
-aws_secret = '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'
+aws_key = '****'
+aws_secret = '****'
 
 s3 = boto3.client('s3', 'ap-northeast-2', aws_access_key_id = aws_key, aws_secret_access_key = aws_secret)
 bucket = 'sample-datasets-ybchoi'
