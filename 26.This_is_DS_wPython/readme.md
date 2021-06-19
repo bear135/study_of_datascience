@@ -2,13 +2,19 @@
 #### URL=https://github.com/yoonkt200/python-data-analysis
 
 **Chapter 00. 들어가기 전에**
+
 0.1 개발환경 구축하기
+
 0.2 데이터 분석을 위한 라이브러리
 
 **Chapter 01. 데이터에서 인사이트 발견하기**
+
 1.1 탐색적 데이터 분석의 과정
+
 1.2 멕시코풍 프랜차이즈 chipotle의 주문 데이터 분석하기
+
 1.3 국가별 음주 데이터 분석하기
+
 연습문제
 
 **Chapter 02. 텍스트 마이닝 첫걸음**  ---> fail 
