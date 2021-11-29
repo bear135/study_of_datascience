@@ -1,0 +1,57 @@
+####################################################################
+박해선 님의 Git-hub 
+https://github.com/rickiepark/machine-learning-with-python-cookbook
+####################################################################
+
+CHAPTER 1 벡터, 행렬, 배열 
+CHAPTER 2 데이터 적재
+CHAPTER 3 데이터 랭글링
+CHAPTER 4 수치형 데이터 다루기
+CHAPTER 5 범주형 데이터 다루기
+
+CHAPTER 6 텍스트 다루기
+CHAPTER 7 날짜와 시간 다루기
+CHAPTER 8 이미지 다루기
+CHAPTER 9 특성 추출을 사용한 차원 축소
+CHAPTER 10 특성 선택을 사용한 차원 축소
+
+CHAPTER 11 모델 평가
+CHAPTER 12 모델 선택
+CHAPTER 13 선형회귀
+CHAPTER 14 트리와 랜덤 포레스트
+CHAPTER 15 k-최근접 이웃
+
+CHAPTER 16 로지스틱 회귀
+CHAPTER 17 서포트 벡터 머신
+CHAPTER 18 나이브 베이즈
+CHAPTER 19 군집
+CHAPTER 20 신경망
+
+CHAPTER 21 훈련된 모델 저장과 복원
+
+
+1. Vectors, Matrices, and Arrays
+2. Loading Data
+3. Data Wrangling
+4. Handling Numerical Data
+5. Handling Categorical Data
+
+6. Handling Text
+7. Handling Dates and Times
+8. Handling Images
+9. Dimensionality Reduction Using Feature Extraction
+10. Dimensionality Reduction Using Feature Selection
+
+11. Model Evaluation
+12. Model Selection
+13. Linear Regression
+14. Trees and Forests
+15. K-Nearest Neighbors
+
+16. Logistic Regression
+17. Support Vector Machines
+18. Naive Bayes
+19. Clustering
+20. Neural Networks
+
+21. Saving and Loading Trained Models
