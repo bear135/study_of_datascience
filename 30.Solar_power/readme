@@ -1,1 +1,27 @@
 
+#### files ###########################################
+ 1. Python code (author : 삼천리 탄소중립 연구소 남종윤 차장)
+ KernelSVR_Standardization_w_rainfall.py
+
+ 2. train data 
+ osan_train_data.csv
+ kwangmyoung_train_data.csv
+
+ 3. result (오산, 광명, 2021년 7월 1일 ~ 2021년 8월 31일) 
+ osan_result.zip
+ kwangmyoung_result.zip
+
+#### features ###########################################
+
+hour : 측정시간, 01시~24시 
+altitude : 고도 
+altitude_change : ??
+azimuth : 방위각 
+temperature : 기온 
+rainfall : 강수량 (단위는?) 
+windvelocity : 풍속 (단위는?) 
+humidity : 습도
+snowfall : 강설량 
+sky : ?? (1,2,3,4의 의미는?) 
+output : 발전량 (단위는?) 
+########################################################
