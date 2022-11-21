@@ -1,4 +1,5 @@
 Python for Excel: A Modern Environment for Automation and Data Analysis
+
 엑셀이 편해지는 파이썬 - 엑셀 사용자를 위한 자동화 구축과 데이터 분석 
 
 - 펠릭스 춤슈타인 (지은이),한선용 (옮긴이), 한빛미디어2022-05-09 
