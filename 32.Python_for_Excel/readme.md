@@ -4,7 +4,7 @@ Python for Excel: A Modern Environment for Automation and Data Analysis
 
 - 펠릭스 춤슈타인 (지은이),한선용 (옮긴이), 한빛미디어2022-05-09 
 - https://github.com/fzumstein/python-for-excel 
-<img src="https://github.com/fzumstein/python-for-excel/blob/1st-edition/images/cover.png?raw=true" width="350">
+<img src="https://image.aladin.co.kr/product/29296/13/cover500/k612837404_1.jpg" width="350">
 
 
 
