@@ -10,6 +10,7 @@
 
 05.2019_Kaggle_MLnDS_Survey - Kaggle, Basic of ML 
 
+
 06.apart_price_2019 - Youtube, Todaycode (Korea Apartment price) 
 
 07.Seoul_public_bike - Youtube, Todaycode (DDa-reung-e) 
@@ -19,6 +20,7 @@
 09.Blue_House_National_Petition - 청와대 국민청원 데이터 분석 
 
 10.ML_with_Python - Book, Andreas C. Mueller's "Introduction to Machine Learning with Python"
+
 
 11.amazon_reviews - ML practice
 
@@ -30,6 +32,7 @@
 
 15.HunKim_DL_zero_to_all - - Youtube, DL zero to all
 
+
 16.Challenger_space_shuttle_O-ring - Kaggle practice, Challenger USA Space shuttle O-ring failure 
 
 17.CheckiO_elementary - https://checkio.org/
@@ -39,6 +42,7 @@
 19.FCP_sampledata - PJT in Doosan Fuel Cell Power 
 
 20.ML_at_work - Book, "머신러닝 실무 프로젝트: 실전에 필요한 머신러닝 시스템 설계, 데이터 수집, 효과 검증 노하우" 
+
 
 21.DeepLearningZeroToAll_S2_Tensorflow - Git(https://hunkim.github.io/ml/), 모두를 위한 딥러닝 Season 2 - Tensorflow 
 
@@ -50,6 +54,7 @@
 
 25.This_is_MySQL - Book, 우재남 "이것이 MySQL이다"
 
+
 26.This_is_DS_wPython - Book, 윤기태 "이것이 데이터 분석이다 with 파이썬"
 
 27.wikidocs_초보자를위한파이썬300제 - Book, https://wikidocs.net/book/922 
@@ -60,6 +65,7 @@
 
 30.Solar_power - PJT in SCL Lab 
 
+
 31.Weather_data_analysis - Youtube, Todaycode (날씨마루) 
 
 32.Python_for_Excel - Book, Felix Zumstein's "Python for Excel: A Modern Environment for Automation and Data Analysis"
@@ -69,6 +75,7 @@
 34.HonGong_machine - Book, 박해선 "혼자 공부하는 머신러닝+딥러닝" 
 
 35.HonGong_analysis - Book, 박해선 "혼자 공부하는 데이터 분석 with 파이썬" 
+
 
 36.Motors_Clustering - PJT in SCL motors
 
