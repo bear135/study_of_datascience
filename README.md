@@ -1,6 +1,7 @@
 # study_of_datascience
 
 01.Python_For_Data_Analysis - Book, Wes McKinney's "Python for Data Analysis"
+
 02.Visualization_by_python - Youtube, Todaycode (Seaborn, etc)
 
 03.Titanic - Kaggle, Basic of ML 
